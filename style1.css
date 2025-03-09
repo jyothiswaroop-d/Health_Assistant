@@ -1,0 +1,130 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body, html {
+    height: 100%;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Full-screen background image */
+body {
+    background: url('nature1.jpg') no-repeat center center fixed; /* Make sure the image path is correct */
+    background-size: cover;
+}
+
+/* Container for the content */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align the content to the bottom */
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    width: 100%;
+    padding: 20px;
+}
+
+/* Stylish Quote */
+.quote {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    margin-bottom: 100px; /* Create space at the bottom of the screen */
+}
+
+.quote p {
+    font-size: 32px;
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 0;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation for fading in the quote */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Auth buttons container */
+.auth-buttons {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+    transform: translateY(-50%); /* Center vertically */
+}
+
+/* Button styles */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+}
+
+/* Button Color & Styling */
+.login-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+}
+
+.signup-btn {
+    background-color: #2196F3;
+    color: white;
+    border: 2px solid #2196F3;
+}
+
+/* Hover effects */
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .quote p {
+        font-size: 26px;
+        max-width: 90%;
+    }
+
+    .auth-buttons {
+        top: 60%; /* Adjust the vertical position for mobile */
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 10px;
+    }
+
+    .auth-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

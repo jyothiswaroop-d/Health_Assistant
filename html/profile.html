@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eeeff4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #130909;
+        }
+        form {
+            background: rgb(248, 246, 246);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(207, 192, 192, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #c6b4b4;
+        }
+        button {
+            background-color: #4CAF50;
+            color: rgb(12, 5, 5);
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profile</h1>
+    <form id="profileForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="full_name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" required>
+
+        <label for="gender">Select your Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        </select>
+
+        <label for="bp">Blood Pressure Status:</label>
+        <select id="bp" name="bp_status">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="breathing">Breathing Problem Status:</label>
+        <select id="breathing" name="breathing_problem">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="diabetes">Diabetes Status:</label>
+        <select id="diabetes" name="diabetes_status">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="weight_goal">Weight Goal:</label>
+        <select id="weight_goal" name="weight_goal">
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Weight Gain">Weight Gain</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', async function (event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            try {
+                const response = await fetch('http://localhost:3001/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Profile updated successfully!');
+                } else {
+                    alert('Error updating profile: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to connect to the server.');
+            }
+        });
+    </script>
+</body>
+</html>

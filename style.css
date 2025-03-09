@@ -1,0 +1,252 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(135deg, #A2C2E6, #4CB7B3); /* Soft blue to teal gradient */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #f4f4f4; /* Light text for contrast */
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for readability */
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 100px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #FFFFFF; /* White text for headers */
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+header a {
+    color: #56C3A2; /* Soft mint color for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333; /* Dark gray text for subheadings */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#loginForm {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-out;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #56C3A2; /* Mint green for focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(86, 195, 162, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #56C3A2; /* Soft mint green for buttons */
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #48A78D; /* Darker mint green on hover */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: black;
+}
+
+p a {
+    color: #252f19; /* Mint green for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Add fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    #loginForm {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    border-radius: 2px;
+    border-color: #252f19;
+}
+
+h1 {
+    text-align: center;
+    color: #56C3A2; /* Matching mint color for headers */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: #56C3A2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #48A78D;
+}
+
+.hidden {
+    display: none;
+}
+
+#recommendations {
+    margin-top: 30px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color:skyblue; 
+    background-size: cover;
+    background-position: center;
+    color: #f4f4f4; /* Light text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background-color: transparent; /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}

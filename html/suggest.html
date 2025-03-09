@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Diet Plan Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #dietPlan {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e2f7e1;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Diet Plan Generator</h1>
+        <form id="dietForm">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" required>
+            </div>
+            <div class="form-group">
+                <label for="bp">Do you have high blood pressure? (Yes/No):</label>
+                <input type="text" id="bp" required>
+            </div>
+            <div class="form-group">
+                <label for="glucose">Do you have high glucose levels? (Yes/No):</label>
+                <input type="text" id="glucose" required>
+            </div>
+            <div class="form-group">
+                <label for="diabetes">Do you have diabetes? (Yes/No):</label>
+                <input type="text" id="diabetes" required>
+            </div>
+            <div class="form-group">
+                <label for="breathing">Do you have breathing problems? (Yes/No):</label>
+                <input type="text" id="breathing" required>
+            </div>
+            <button type="submit">Generate Diet Plan</button>
+        </form>
+        <div id="dietPlan">
+            <h3>Suggested Diet Plan:</h3>
+            <p id="planText"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('dietForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let age = document.getElementById('age').value;
+            let weight = document.getElementById('weight').value;
+            let bp = document.getElementById('bp').value.toLowerCase();
+            let glucose = document.getElementById('glucose').value.toLowerCase();
+            let diabetes = document.getElementById('diabetes').value.toLowerCase();
+            let breathing = document.getElementById('breathing').value.toLowerCase();
+
+            let dietPlan = generateDietPlan(age, weight, bp, glucose, diabetes, breathing);
+
+            document.getElementById('planText').textContent = dietPlan;
+            document.getElementById('dietPlan').style.display = 'block';
+        });
+
+        function generateDietPlan(age, weight, bp, glucose, diabetes, breathing) {
+            let plan = "Based on your inputs, we suggest the following diet plan:\n\n";
+
+            // Age-Based Suggestions
+            if (age >= 60) {
+                plan += "Since you're 60 or older, focus on a heart-healthy diet with low sodium, high fiber, and plenty of fruits and vegetables.\n";
+            } else if (age >= 30) {
+                plan += "You're in your prime age, aim for a balanced diet with healthy carbs, proteins, and fats.\n";
+            } else {
+                plan += "For your age, focus on high-protein meals to support growth and development, and incorporate whole grains and vegetables.\n";
+            }
+
+            // Blood Pressure Recommendations
+            if (bp === 'yes') {
+                plan += "Since you have high blood pressure, focus on reducing sodium intake and increase potassium-rich foods like bananas, leafy greens, and sweet potatoes.\n";
+            } else {
+                plan += "Your blood pressure seems normal. Continue with a balanced diet with a moderate amount of sodium.\n";
+            }
+
+            // Glucose Level Recommendations
+            if (glucose === 'yes') {
+                plan += "Since you have high glucose levels, avoid sugary foods and refined carbs. Focus on low-GI foods like whole grains, legumes, and vegetables.\n";
+            } else {
+                plan += "Your glucose level seems normal. Include complex carbohydrates in your diet to keep your blood sugar stable.\n";
+            }
+
+            // Diabetes Considerations
+            if (diabetes === 'yes') {
+                plan += "Since you have diabetes, avoid high-sugar foods and focus on a low-GI diet to maintain blood sugar levels.\n";
+            }
+
+            // Breathing Problems Considerations
+            if (breathing === 'yes') {
+                plan += "If you have breathing problems, avoid heavy meals and ensure you have balanced meals that support lung function, like omega-3 rich foods and antioxidants.\n";
+            }
+
+            // Weight-Based Suggestions
+            if (weight > 80) {
+                plan += "To help with weight management, consider a calorie-controlled diet. Focus on lean proteins, vegetables, and whole grains.\n";
+            } else if (weight < 50) {
+                plan += "You may need to increase your calorie intake. Focus on healthy fats, proteins, and nutrient-dense foods.\n";
+            } else {
+                plan += "Maintain a balanced diet with appropriate portion sizes for your weight.\n";
+            }
+
+            // Example Plan with Meal Types
+            plan += "\nSample Day Plan:\n";
+            plan += "Breakfast: Oatmeal with almond butter and a handful of berries\n";
+            plan += "Lunch: Grilled chicken with quinoa and mixed greens\n";
+            plan += "Snack: Greek yogurt with chia seeds\n";
+            plan += "Dinner: Grilled salmon with roasted vegetables\n";
+            plan += "Drinks: Water or herbal tea\n";
+            
+            return plan;
+        }
+    </script>
+</body>
+</html>

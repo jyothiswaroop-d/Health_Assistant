@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health</title>
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="nav-logo border">
+            <!-- Logo Image -->
+            <div class="logo">
+                <img src="../logo.jpg" alt="Health & Fitness Logo" class="logo-img">
+                Health & Fitness
+            </div>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="streak.html">Streak</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html" class="profile-link">
+                Profile
+                <!-- Profile Icon -->
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-images">
+            <div class="hero-image" id="image1">
+                <img src="../img1.gif" alt="Hero Image 1">
+            </div>
+            <div class="" id="image2">
+                <img src="../img2.gif" alt="Hero Image 2">
+            </div>
+            <div class="hero-image" id="image3">
+                <img src="../img3.gif" alt="Hero Image 3">
+            </div>
+            <div class="hero-image" id="image4">
+                <img src="../img4.gif" alt="Hero Image 4">
+            </div>
+        </div>
+        <!-- Navigation Buttons -->
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </section>
+
+    <!-- Image Container Section -->
+    <section class="image-container">
+        <div class="image-item">
+            <img src="../exer.jpg" alt="Workout" />
+            <a href="fit_goals.html" class="image-link">Explore Workouts</a>
+        </div>
+        <div class="image-item">
+            <img src="../food.jpg" alt="Nutrition" />
+            <a href="suggest.html" class="image-link">Discover Nutrition Tips</a>
+        </div>
+        <div class="image-item">
+            <img src="../ai.jpg" alt="AI Chat" />
+            <a href="chatbot.html" class="image-link">Chat with AI</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Health & Fitness. All rights reserved.</p>
+    </footer>
+
+    <script src="../home.js"></script>
+</body>
+</html>

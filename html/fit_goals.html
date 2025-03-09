@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Goals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+    
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        :root {
+            --lighting-color: #0089b7;
+            --dark-color: #000000;
+            --darker-color: #2d5690;
+            --secondary-color: #fff700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Project Section */
+        #project {
+            background: var(--darker-color);
+        }
+
+        #project h2 {
+            font-size: 6rem;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .project_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid_item {
+            display: grid;
+            place-items: center;
+        }
+
+        .card {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transition: 1s ease-in-out;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+            opacity: 0.8;
+        }
+
+        .card:hover .card_content {
+            background: white;
+            color: var(--dark-color);
+            transform: translateY(0px);
+        }
+
+        .card_content {
+            padding: 2rem;
+            position: relative;
+            top: -6.5rem;
+            margin-bottom: -6.5rem;
+            transition: 0.5s ease-in-out;
+            transform: translateY(100px);
+        }
+
+        .card_content h3 {
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-color);
+            padding: 2rem;
+            color: white;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- You can add navigation or branding here if needed -->
+    </header>
+
+    <main>
+        <section id="project">
+            <h2>Fitness Goals</h2>
+            <div class="container">
+                <div class="project_container">
+                    <div class="grid_item">
+                        <div class="card">
+                            <img src="../images/project1.jpg" alt="project 1" />
+                            <!-- Link to workout1.html -->
+                            <a href="workout1.html">
+                                <div class="card_content">
+                                    <h3>LEAN</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid_item">
+                        <div class="card">
+                            <img src="../images/project2.jpg" alt="project 2" />
+                            <!-- Link to workout2.html -->
+                            <a href="workout2.html">
+                                <div class="card_content">
+                                    <h3>BULK</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">Our Aim is to Make you Healthy</div>
+    </footer>
+</body>
+
+</html>

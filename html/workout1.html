@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lean Exercises</title>
+    <link rel="stylesheet" href="../workout1.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" >
+    <script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+    <style>
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .exercise-card {
+            cursor: pointer;
+        }
+        .card {
+            position: relative;
+            text-align: center;
+        }
+        .card video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="project">
+            <h2>Weight Loss Exercises</h2>
+            <div class="container">
+                <div class="project_container">
+                    <!-- First Exercise: Mountain Climbers -->
+                    <div class="grid_item">
+                        <div class="card exercise-card" onclick="startTimer('timer1', 'Mountain Climbers', 'video1')">
+                            <video id="video1" loop muted autoplay>
+                                <source src="../images/project1.mp4" type="video/mp4" />
+                                <source src="images/project1.webm" type="video/webm" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card_content">
+                                <h3>Mountain Climbers</h3>
+                            </div>
+                            <div id="timer1" class="timer">01:00</div>
+                        </div>
+                    </div>
+
+                    <!-- Second Exercise: Air Bike Crunches -->
+                    <div class="grid_item">
+                        <div class="card exercise-card" onclick="startTimer('timer2', 'Air Bike Crunches', 'video2')">
+                            <video id="video2" loop muted autoplay>
+                                <source src="../images/project2.mp4" type="video/mp4" />
+                                <source src="images/project2.webm" type="video/webm" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card_content">
+                                <h3>Air Bike Crunches</h3>
+                            </div>
+                            <div id="timer2" class="timer">01:00</div>
+                        </div>
+                    </div>
+
+                    <!-- Third Exercise: Sit Ups -->
+                    <div class="grid_item">
+                        <div class="card exercise-card" onclick="startTimer('timer3', 'Sit Ups', 'video3')">
+                            <video id="video3" loop muted autoplay>
+                                <source src="../images/project3.mp4" type="video/mp4" />
+                                <source src="images/project3.webm" type="video/webm" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card_content">
+                                <h3>Sit Ups</h3>
+                            </div>
+                            <div id="timer3" class="timer">01:00</div>
+                        </div>
+                    </div>
+                    <div class="grid_item">
+                        <div class="card exercise-card" onclick="startTimer('timer4', 'Sit Ups', 'video4')">
+                            <video id="video4" loop muted autoplay>
+                                <source src="../images/project4.mp4" type="video/mp4" />
+                                <source src="images/project4.webm" type="video/webm" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card_content">
+                                <h3>Sumo Squads</h3>
+                            </div>
+                            <div id="timer4" class="timer">01:00</div>
+                        </div>
+                    </div>
+
+
+                    <div class="grid_item">
+                        <div class="card exercise-card" onclick="startTimer('timer5', 'Sit Ups', 'video5')">
+                            <video id="video5" loop muted autoplay>
+                                <source src="../images/project5.mp4" type="video/mp4" />
+                                <source src="images/project5.webm" type="video/webm" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card_content">
+                                <h3>Childs Pose</h3>
+                            </div>
+                            <div id="timer5" class="timer">01:00</div>
+                        </div>
+                    </div>
+
+
+                    <div class="grid_item">
+                        <div class="card exercise-card" onclick="startTimer('timer6', 'Sit Ups', 'video6')">
+                            <video id="video3" loop muted autoplay>
+                                <source src="../images/project6.mp4" type="video/mp4" />
+                                <source src="images/project6.webm" type="video/webm" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card_content">
+                                <h3>Chest Stretch</h3>
+                            </div>
+                            <div id="timer6" class="timer">01:00</div>
+                        </div>
+                    </div>
+
+    
+
+
+                    <!-- Additional Exercises... -->
+                    <!-- You can repeat the pattern for the other exercises -->
+                </div> <!-- Closing project container div -->
+            </div> <!-- Closing container div -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">Start from 1 day Exercise to Maintain Daily Routine</div>
+    </footer>
+
+    <script>
+        // Function to start the countdown timer when an exercise is clicked
+        function startTimer(timerId, exerciseName, videoId) {
+            const timerElement = document.getElementById(timerId);
+            const videoElement = document.getElementById(videoId);
+            let minutes = 1; // Start from 1 minute (i.e., 60 seconds)
+            let seconds = 0;
+            let interval;
+    
+            console.log(`Timer started for: ${exerciseName}`); // Log which exercise timer started
+    
+            // Function to update the timer
+            function updateTime() {
+                if (seconds === 0 && minutes === 0) {
+                    clearInterval(interval); // Stop the timer when it reaches 00:00
+                    alert(`${exerciseName} timer finished!`);
+                    videoElement.pause(); // Pause the video
+                    return;
+                }
+    
+                // Decrement the time
+                if (seconds === 0) {
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+    
+                const timeString = `${padZero(minutes)}:${padZero(seconds)}`;
+                timerElement.textContent = timeString;
+            }
+    
+            function padZero(num) {
+                return num < 10 ? '0' + num : num;
+            }
+    
+            // Start the interval for the countdown timer to decrement every second
+            interval = setInterval(updateTime, 1000);
+    
+            // Disable further clicks on the exercise card once the timer has started
+            timerElement.parentElement.style.pointerEvents = 'none';
+    
+            // Ensure the video behaves like a GIF (auto-playing and looping)
+            videoElement.play(); // Start the video
+            videoElement.loop = true; // Ensure the video loops
+        }
+    </script>
+</body>
+</html>

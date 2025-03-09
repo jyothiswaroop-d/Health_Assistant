@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streak </title>
+    <script src="https://cdn.jsdelivr.net/npm/calendar-heatmap/index.min.js"></script>
+    <style>
+         /* General Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.streak {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #fdfd96; /* Bright yellow to stand out */
+    animation: pulse 2s infinite; /* Add subtle pulsing animation */
+}
+
+#heatmap {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip Styling for Heatmap */
+.calendar-heatmap-tooltip {
+    color: #fff;
+    background: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons or Interactive Elements */
+button {
+    background: #ff6f61;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff3b3b;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Heatmap Colors */
+.calendar-heatmap .color-filled {
+    fill: #ffdfba; /* Vibrant pastel shade */
+}
+
+.calendar-heatmap .color-1 {
+    fill: #ff8c8c;
+}
+
+.calendar-heatmap .color-2 {
+    fill: #ff6363;
+}
+
+.calendar-heatmap .color-3 {
+    fill: #ff3b3b;
+}
+
+.calendar-heatmap .color-4 {
+    fill: #ff1a1a;
+}
+
+    </style>
+</head>
+<body>
+    <h1>User Streak & Activity Heatmap</h1>
+    <div class="streak">Streak: <span id="streak-count">0</span> days</div>
+    <div id="heatmap"></div>
+
+    <script>
+        const username = "anok"; // Replace with dynamic username in a real app
+
+        // Record Login and Fetch Streak
+        fetch('http://localhost:3001/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('streak-count').textContent = data.streak;
+        })
+        .catch(error => console.error('Error logging in:', error));
+
+        // Fetch Login Activity for Heatmap
+        fetch('http://localhost:3001/api/get-login-activity')
+        .then(response => response.json())
+        .then(data => {
+            const heatmap = calendarHeatmap()
+                .data(data)
+                .selector('#heatmap')
+                .tooltipEnabled(true)
+                .colorRange(['#D8E6E7', '#218380']);
+            heatmap();
+        })
+        .catch(error => console.error('Error fetching heatmap data:', error));
+    </script>
+</body>
+</html>
